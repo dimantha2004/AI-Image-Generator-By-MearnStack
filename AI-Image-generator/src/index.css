@@ -2,22 +2,23 @@
 @tailwind components;
 @tailwind utilities;
 
-* {
-    font-family: 'Inter', sans-serif;
+@layer base {
+  * {
+    @apply font-inter antialiased;
+  }
+  
+  /* Custom scrollbar */
+  .prompt::-webkit-scrollbar {
+    @apply w-1.5;
+  }
+  
+  .prompt::-webkit-scrollbar-thumb {
+    @apply bg-gray-400 rounded-full;
+  }
 }
 
-@media screen and (min-width: 480px) {
-    .card:nth-child(7n + 1) {
-        grid-column: auto/span 2;
-        grid-row: auto/span 2;
-    }
-}
-
-.prompt::-webkit-scrollbar {
-    width: 5px;
-}
- 
-.prompt::-webkit-scrollbar-thumb {
-  background-color: #666e75;
-  border-radius: 5px;
+@layer components {
+  .card-featured {
+    @apply col-span-2 row-span-2;
+  }
 }
